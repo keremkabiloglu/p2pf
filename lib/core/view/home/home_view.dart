@@ -10,9 +10,9 @@ class HomeView extends HomeViewModel {
       child: Scaffold(
           appBar: AppBar(
             automaticallyImplyLeading: false,
-            title: getTitle(context),
+            title: Text('home'),
           ),
-          body: getBody(context)),
+          body: Container()),
     );
   }
 }
