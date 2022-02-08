@@ -34,4 +34,8 @@ class SocketService {
     }
     return false;
   }
+
+  void clearListeners() {
+    _socket.clearListeners();
+  }
 }

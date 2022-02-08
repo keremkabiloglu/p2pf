@@ -16,4 +16,8 @@ class LoginService extends SocketService {
   Future<void> listenRegister(dynamic Function(dynamic) handler) async {
     listen('easy:response', handler);
   }
+
+  void clear() {
+    clearListeners();
+  }
 }

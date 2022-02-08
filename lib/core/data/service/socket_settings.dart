@@ -14,8 +14,6 @@ extension SocketExtension on SocketSettings {
         return ':3000';
       case SocketSettings.timeOut:
         return 10;
-      case SocketSettings.registerAnEmit:
-        return 'emit:text';
       default:
         throw Exception('undefined parameter');
     }

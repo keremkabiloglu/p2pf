@@ -1,0 +1,17 @@
+{
+    "name": "İsim",
+    "email": "E-Posta",
+    "emailLC": "e-posta",
+    "hintEmail": "ornek@alanadi.com",
+    "password": "Şifre",
+    "minMaxCharacter": "Minimum {}, maksimum {} karakter",
+    "sampleName": "Ad Soyad",
+    "emptyError": "Bu alan boş bırakılamaz.",
+    "lenghtError": "Bu alan en az {} karakter uzunluğunda olmalı.",
+    "valid": "Lütfen geçerli bir {} girin.",
+    "register": "Kaydol",
+    "login": "Giriş",
+    "haveAccount": "Bir hesabın var mı?",
+    "dontHaveAccount": "Bir hesabın yok mu?",
+    "signIn": "Giriş Yap"
+}

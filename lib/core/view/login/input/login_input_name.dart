@@ -1,13 +1,15 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class LoginInputName extends StatelessWidget {
   final Function(String)? onChanged;
   final TextEditingController? textEditingController;
-  final String labelText = 'Name';
-  final String hintText = 'John Doe';
+  final String labelText = tr('name');
+  final String hintText = tr('sampleName');
   final int maxLenght = 32;
+  final int minLenght = 3;
 
-  const LoginInputName({Key? key, this.textEditingController, this.onChanged})
+  LoginInputName({Key? key, this.textEditingController, this.onChanged})
       : super(key: key);
 
   @override
@@ -30,9 +32,9 @@ class LoginInputName extends StatelessWidget {
 
   String? emailValidation(String? input) {
     if (input == null || input == '') {
-      return 'This area can not be empty.';
-    } else if (input.length < 3) {
-      return 'Name lenght should be minimum three letters.';
+      return tr('emptyError');
+    } else if (input.length < minLenght) {
+      return tr('lenghtError', args: [minLenght.toString()]);
     } else {
       return null;
     }

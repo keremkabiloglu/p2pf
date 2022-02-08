@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class LoginInputPassword extends StatefulWidget {
@@ -12,9 +13,10 @@ class LoginInputPassword extends StatefulWidget {
 }
 
 class _LoginInputPasswordState extends State<LoginInputPassword> {
-  final String labelText = 'Password';
-  final String hintText = 'Min 8, max 32 characters.';
+  final String labelText = tr('password');
+  final String hintText = tr('minMaxCharacter', args: ['8', '32']);
   final int maxLenght = 32;
+  final int minLenght = 8;
   bool obSecure = true;
 
   @override
@@ -38,9 +40,9 @@ class _LoginInputPasswordState extends State<LoginInputPassword> {
 
   String? validation(String? input) {
     if (input == null || input == '') {
-      return 'This area can not be empty.';
-    } else if (input.length < 8) {
-      return 'Password should be minimum 8 characters.';
+      return tr('emptyError');
+    } else if (input.length < minLenght) {
+      return tr('lenghtError', args: [minLenght.toString()]);
     } else {
       return null;
     }

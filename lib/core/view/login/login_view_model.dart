@@ -4,18 +4,29 @@ import 'package:flutter_application_1/core/view/login/service/login_service.dart
 import 'login.dart';
 
 abstract class LoginViewModel extends State<Login> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final LoginService _service = LoginService();
+
   bool validate = false;
   bool waiting = false;
-  final LoginService _service = LoginService();
+  bool register = true;
 
   @override
   void initState() {
-    super.initState();
     _service.listenRegister(_response);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    _service.clear();
+    super.dispose();
   }
 
   //Validation
@@ -31,7 +42,7 @@ abstract class LoginViewModel extends State<Login> {
   //End Validation
 
   //Register Button
-  void onPressedRegister() {
+  void onPressedButton() {
     _service.emitRegister(
       name: nameController.text,
       email: emailController.text,
@@ -41,7 +52,11 @@ abstract class LoginViewModel extends State<Login> {
   }
 
   //Sign In Button
-  void onPressedSignIn() {}
+  void onPressedSignIn() {
+    setState(() {
+      register = !register;
+    });
+  }
 
   //Change Waiting Progress
   void _changeWaiting() {
@@ -54,10 +69,8 @@ abstract class LoginViewModel extends State<Login> {
   void _response(data) {
     if (data['response'] == true) {
       _changeWaiting();
-      print('success');
     } else {
       _changeWaiting();
-      print('wrong');
     }
   }
 }

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/view/login/button/form_button.dart';
 import 'package:flutter_application_1/core/view/login/input/login_input_email.dart';
@@ -14,49 +15,59 @@ class LoginView extends LoginViewModel {
     );
   }
 
-  Form buildForm() {
-    return Form(
-      key: formKey,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Spacer(flex: 5),
-            const FlutterLogo(size: 120),
-            const Spacer(flex: 5),
-            buildNameInput(),
-            const Spacer(flex: 1),
-            buildEmailInput(),
-            const Spacer(flex: 1),
-            buildPasswordInput(),
-            const Spacer(flex: 1),
-            buildFormButton(),
-            const Spacer(flex: 1),
-            buildSignIn(),
-            const Spacer(
-              flex: 10,
-            ),
-          ],
+  Column buildForm() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        const Expanded(
+          flex: 4,
+          child: FlutterLogo(
+            size: 120,
+          ),
         ),
-      ),
+        Expanded(
+          flex: 5,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: Form(
+              key: formKey,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    buildNameInput(),
+                    const SizedBox(height: 10),
+                    buildEmailInput(),
+                    const SizedBox(height: 10),
+                    buildPasswordInput(),
+                    const SizedBox(height: 10),
+                    buildFormButton(),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: buildSignIn(),
+        )
+      ],
     );
   }
 
-  Widget buildFormButton() {
-    return waiting == true
-        ? const CircularProgressIndicator()
-        : FormButton(
-            text: 'Register',
-            onPressed: validate == true ? onPressedRegister : null);
-  }
-
-  LoginInputPassword buildPasswordInput() {
-    return LoginInputPassword(
-      textEditingController: passwordController,
-      onChanged: onPasswordChanged,
+  Widget buildNameInput() {
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 200),
+      child: register
+          ? LoginInputName(
+              textEditingController: nameController,
+              onChanged: onNameChanged,
+            )
+          : const SizedBox(
+              height: 0,
+            ),
     );
   }
 
@@ -67,21 +78,29 @@ class LoginView extends LoginViewModel {
     );
   }
 
-  LoginInputName buildNameInput() {
-    return LoginInputName(
-      textEditingController: nameController,
-      onChanged: onNameChanged,
+  LoginInputPassword buildPasswordInput() {
+    return LoginInputPassword(
+      textEditingController: passwordController,
+      onChanged: onPasswordChanged,
     );
+  }
+
+  Widget buildFormButton() {
+    return waiting == true
+        ? const CircularProgressIndicator()
+        : FormButton(
+            text: register ? tr('register') : tr('login'),
+            onPressed: validate == true ? onPressedButton : null);
   }
 
   Row buildSignIn() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text('Do you have an account?'),
+        Text(register ? 'haveAccount' : 'dontHaveAccount').tr(),
         TextButton(
           onPressed: onPressedSignIn,
-          child: const Text('Sign In'),
+          child: Text(register ? 'signIn' : 'register').tr(),
         )
       ],
     );

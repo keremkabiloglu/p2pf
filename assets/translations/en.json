@@ -1,0 +1,17 @@
+{
+    "name": "Name",
+    "email": "E-Mail",
+    "emailLC": "e-mail",
+    "hintEmail": "example@domain.com",
+    "password": "Password",
+    "minMaxCharacter": "Minimum {}, maximum {} characters",
+    "sampleName": "John Doe",
+    "emptyError": "This field can not be empty.",
+    "lenhtError": "This field must contain at least {} characters",
+    "valid": "Please give a valid {}",
+    "register": "Register",
+    "login": "Login",
+    "haveAccount": "Do you have an account?",
+    "dontHaveAccount": "Don't have an account?",
+    "signIn": "Sign In"
+}

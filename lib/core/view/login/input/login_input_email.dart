@@ -1,13 +1,15 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class LoginInputEmail extends StatelessWidget {
   final Function(String)? onChanged;
   final TextEditingController? textEditingController;
-  final String labelText = 'E-Mail';
-  final String hintText = 'example@domain.com';
+  final String labelText = tr('email');
+  final String hintText = tr('hintEmail');
   final int maxLenght = 64;
 
-  const LoginInputEmail({Key? key, this.textEditingController, this.onChanged}) : super(key: key);
+  LoginInputEmail({Key? key, this.textEditingController, this.onChanged})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +31,11 @@ class LoginInputEmail extends StatelessWidget {
 
   String? emailValidation(input) {
     if (input == null || input == '') {
-      return 'This area can not be empty.';
+      return tr('emptyError');
     } else if (!RegExp(
             r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
         .hasMatch(input)) {
-      return 'You should give a valid email address.';
+      return tr('valid', args:[tr('emailLC')]);
     } else {
       return null;
     }
