@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/core/data/service/socket_service.dart';
 import 'package:flutter_application_1/core/view/splash/splash.dart';
 import 'package:flutter_application_1/core/view/theme/themeData/dartk_theme_data.dart';
 import 'package:flutter_application_1/core/view/theme/themeData/light_theme_data.dart';
-import 'package:provider/provider.dart';
 
 Future<void> main() async {
-  runApp(ChangeNotifierProvider(
-    create: (_) => SocketService(),
-    child: const MyApp(),
-  ));
+  runApp(const MyApp());
 }
 
 void splashScreen(BuildContext context) async {}

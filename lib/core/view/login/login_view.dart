@@ -27,15 +27,13 @@ class LoginView extends LoginViewModel {
             const Spacer(flex: 5),
             const FlutterLogo(size: 120),
             const Spacer(flex: 5),
-            LoginInputName(onChanged: onNameChanged),
+            buildNameInput(),
             const Spacer(flex: 1),
-            LoginInputEmail(onChanged: onEmailChanged),
+            buildEmailInput(),
             const Spacer(flex: 1),
-            LoginInputPassword(onChanged: onPasswordChanged),
+            buildPasswordInput(),
             const Spacer(flex: 1),
-            FormButton(
-                text: 'Register',
-                onPressed: validate == true ? onPressedRegister : null),
+            buildFormButton(),
             const Spacer(flex: 1),
             buildSignIn(),
             const Spacer(
@@ -44,6 +42,35 @@ class LoginView extends LoginViewModel {
           ],
         ),
       ),
+    );
+  }
+
+  Widget buildFormButton() {
+    return waiting == true
+        ? const CircularProgressIndicator()
+        : FormButton(
+            text: 'Register',
+            onPressed: validate == true ? onPressedRegister : null);
+  }
+
+  LoginInputPassword buildPasswordInput() {
+    return LoginInputPassword(
+      textEditingController: passwordController,
+      onChanged: onPasswordChanged,
+    );
+  }
+
+  LoginInputEmail buildEmailInput() {
+    return LoginInputEmail(
+      textEditingController: emailController,
+      onChanged: onEmailChanged,
+    );
+  }
+
+  LoginInputName buildNameInput() {
+    return LoginInputName(
+      textEditingController: nameController,
+      onChanged: onNameChanged,
     );
   }
 
