@@ -19,9 +19,9 @@ class SocketService {
     return _socket.connected;
   }
 
-  Future<bool> send(String event, dynamic handler) async {
+  Future<bool> send(String event, dynamic data) async {
     if (await connectServer()) {
-      _socket.emit(event, handler);
+      _socket.emit(event, data);
       return true;
     }
     return false;

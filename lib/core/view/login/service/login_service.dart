@@ -1,23 +1,45 @@
+import 'dart:convert';
+
+import 'package:crypto/crypto.dart';
 import 'package:flutter_application_1/core/data/service/socket_service.dart';
 
 class LoginService extends SocketService {
-  Future<void> emitRegister({
+  static const String _registerEvent = 'register:send';
+  static const String _registerResponse = 'register:response';
+  static const String _loginEvent = 'login:send';
+  static const String _loginResponse = 'login:response';
+
+  void clear() {
+    clearListeners();
+  }
+
+  Future<bool> emitRegister({
     required String name,
     required String email,
     required String password,
   }) async {
-    await send('easy', {
+    return await send(_registerEvent, {
       'name': name,
       'email': email,
-      'password': password,
+      'password': sha256.convert(utf8.encode(password)).toString(),
     });
   }
 
-  Future<void> listenRegister(dynamic Function(dynamic) handler) async {
-    listen('easy:response', handler);
+  Future<bool> listenRegister(dynamic Function(dynamic) handler) async {
+    return await listen(_registerResponse, handler);
   }
 
-  void clear() {
-    clearListeners();
+  Future<bool> emitLogin({
+    required String email,
+    required String password,
+  }) async {
+    return await send(_loginEvent, {
+      'email': email,
+      'password': sha256.convert(utf8.encode(password)).toString(),
+    });
+  }
+
+  Future<bool> listenLogin(dynamic Function(dynamic) handler) async {
+    return await listen(_loginResponse, handler);
   }
 }

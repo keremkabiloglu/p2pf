@@ -22,6 +22,7 @@ class LoginInputEmail extends StatelessWidget {
       autocorrect: false,
       validator: emailValidation,
       decoration: InputDecoration(
+          border: Theme.of(context).inputDecorationTheme.border,
           labelText: labelText,
           prefixIcon: const Icon(Icons.email),
           hintText: hintText,
@@ -35,7 +36,7 @@ class LoginInputEmail extends StatelessWidget {
     } else if (!RegExp(
             r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
         .hasMatch(input)) {
-      return tr('valid', args:[tr('emailLC')]);
+      return tr('valid', args: [tr('emailLC')]);
     } else {
       return null;
     }

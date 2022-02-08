@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/data/local/shared_pref.dart';
 import 'package:flutter_application_1/core/view/login/login.dart';
 import 'package:flutter_application_1/core/view/navigation/navigation.dart';
+import 'package:flutter_application_1/core/view/theme/scale_route.dart';
 
 import 'splash.dart';
 
@@ -17,9 +18,9 @@ Future<void> checkLogged(BuildContext context) async {
   String? token = await SharedPref().getUserToken;
   if (token == null) {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => const Login()));
+        context, ScaleRoute(page: const Login()));
   } else {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const Navigation()));
+        .push(ScaleRoute(page: const Navigation()));
   }
 }

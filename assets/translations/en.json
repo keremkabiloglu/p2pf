@@ -13,5 +13,9 @@
     "login": "Login",
     "haveAccount": "Do you have an account?",
     "dontHaveAccount": "Don't have an account?",
-    "signIn": "Sign In"
+    "signIn": "Sign In",
+    "error": "ERROR: {}",
+    "connectionError": "Connection error.",
+    "informationError": "Informations are wrong, please check them.",
+    "takenEmail": "This e-mail has already taken."
 }

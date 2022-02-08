@@ -8,6 +8,8 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  EasyLocalization.logger.enableBuildModes = [];
+
   FlutterNativeSplash.removeAfter(initialization);
   runApp(EasyLocalization(
     supportedLocales: const [
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
       theme: lightThemeData,
       darkTheme: darkThemeData,
       localizationsDelegates: context.localizationDelegates,

@@ -4,6 +4,7 @@ class SharedPref {
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
   Future<void> saveUserToken(String token) async {
+    await logOutUser();
     final SharedPreferences prefs = await _prefs;
     prefs.setString('token', token);
   }

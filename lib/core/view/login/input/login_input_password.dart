@@ -56,7 +56,6 @@ class _LoginInputPasswordState extends State<LoginInputPassword> {
         });
       },
       icon: Icon(secure == true ? Icons.visibility_off : Icons.visibility),
-      color: Colors.black,
     );
   }
 }

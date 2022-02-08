@@ -28,6 +28,8 @@ dependencies:
   flutter_native_splash: ^2.0.1+1
   #Localization
   easy_localization: ^3.0.0
+  #Cyripto
+  crypto: ^3.0.1
   
 #Splash Screen
 flutter_native_splash:

@@ -13,5 +13,9 @@
     "login": "Giriş",
     "haveAccount": "Bir hesabın var mı?",
     "dontHaveAccount": "Bir hesabın yok mu?",
-    "signIn": "Giriş Yap"
+    "signIn": "Giriş Yap",
+    "error": "HATA: {}",
+    "connectionError": "Bağlantı kurulamadı.",
+    "informationError": "Bilgiler hatalı, lütfen tekrar deneyin.",
+    "takenEmail": "Bu e-posta adresi zaten kullanımda."
 }

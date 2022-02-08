@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-ThemeData get lightThemeData => ThemeData(
-    inputDecorationTheme: const InputDecorationTheme(
-        border: OutlineInputBorder(
-            borderSide: BorderSide(width: 1, color: Colors.black))));
+ThemeData get lightThemeData => ThemeData.light().copyWith(
+      inputDecorationTheme: const InputDecorationTheme(
+        border: OutlineInputBorder(),
+        suffixIconColor: Colors.black,
+      ),
+    );
