@@ -10,7 +10,7 @@ class HomeView extends HomeViewModel {
       child: Scaffold(
           appBar: AppBar(
             automaticallyImplyLeading: false,
-            title: Text('home'),
+            title: const Text('home'),
           ),
           body: Container()),
     );

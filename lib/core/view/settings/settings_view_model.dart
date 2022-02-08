@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'settings.dart';
 
 abstract class SettingsViewModel extends State<Settings> {
