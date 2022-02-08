@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/core/view/home/home.dart';
-import 'package:flutter_application_1/core/view/settings/settings.dart';
 
+import '../home/home.dart';
+import '../settings/settings.dart';
 import 'navigation.dart';
 
 abstract class NavigationViewModel extends State<Navigation> {

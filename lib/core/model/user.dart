@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter_application_1/core/model/message.dart';
+import 'message.dart';
 
 class User {
   int? id;

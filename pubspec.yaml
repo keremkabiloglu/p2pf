@@ -1,5 +1,5 @@
-name: flutter_application_1 #App Name
-description: A new Flutter project. #App Description
+name: P2PF #App Name
+description: Peer to peer chat application. #App Description
 
 #Pub.dev Publish
 publish_to: 'none'

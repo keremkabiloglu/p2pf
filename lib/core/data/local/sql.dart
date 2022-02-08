@@ -1,8 +1,9 @@
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_application_1/core/model/message.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
+
+import '../../model/message.dart';
 
 class Sql {
   final String _dataBase = 'database.db';

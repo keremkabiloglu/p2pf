@@ -1,11 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/core/data/local/shared_pref.dart';
-import 'package:flutter_application_1/core/view/login/service/login_service.dart';
-import 'package:flutter_application_1/core/view/theme/scale_route.dart';
 
+import '../../data/local/shared_pref.dart';
 import '../navigation/navigation.dart';
+import '../theme/scale_route.dart';
 import 'login.dart';
+import 'service/login_service.dart';
 
 abstract class LoginViewModel extends State<Login> {
   final TextEditingController nameController = TextEditingController();

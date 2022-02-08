@@ -1,5 +1,6 @@
-import 'package:flutter_application_1/core/data/service/socket_settings.dart';
 import 'package:socket_io_client/socket_io_client.dart';
+
+import 'socket_settings.dart';
 
 class SocketService {
   final Socket _socket = io(

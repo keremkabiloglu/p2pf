@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/core/data/local/shared_pref.dart';
-import 'package:flutter_application_1/core/view/theme/scale_route.dart';
+
+import '../../data/local/shared_pref.dart';
 import '../login/login.dart';
+import '../theme/scale_route.dart';
 import 'settings_view_model.dart';
 
 class SettingsView extends SettingsViewModel {

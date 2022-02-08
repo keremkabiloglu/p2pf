@@ -1,9 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/core/view/splash/splash.dart';
-import 'package:flutter_application_1/core/view/theme/themeData/dartk_theme_data.dart';
-import 'package:flutter_application_1/core/view/theme/themeData/light_theme_data.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+
+import 'core/view/splash/splash.dart';
+import 'core/view/theme/themeData/dartk_theme_data.dart';
+import 'core/view/theme/themeData/light_theme_data.dart';
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
