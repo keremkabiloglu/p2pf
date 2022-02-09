@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'home.dart';
+import 'messages.dart';
 
-abstract class HomeViewModel extends State<Home> {
+abstract class MessagesViewModel extends State<Messages> {
   String title = 'Home';
 
   @override

@@ -1,6 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../home/home.dart';
+import '../messages/messages.dart';
 import '../settings/settings.dart';
 import 'navigation.dart';
 
@@ -16,16 +17,16 @@ abstract class NavigationViewModel extends State<Navigation> {
   }
 
   //Icons
-  final IconData homeIconData = Icons.home;
+  final IconData homeIconData = Icons.chat_bubble;
   final IconData settingsIconData = Icons.settings;
 
   //Labels
-  String homeLabel = 'Home';
-  final String settingsLabel = 'Settings';
+  String messagesLabel = tr('messages');
+  final String settingsLabel = tr('settings');
 
   //View List
   List<Widget> views = [
-    const Home(),
+    const Messages(),
     const Settings(),
   ];
 }

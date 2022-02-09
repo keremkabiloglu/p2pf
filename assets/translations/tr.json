@@ -17,5 +17,7 @@
     "error": "HATA: {}",
     "connectionError": "Bağlantı kurulamadı.",
     "informationError": "Bilgiler hatalı, lütfen tekrar deneyin.",
-    "takenEmail": "Bu e-posta adresi zaten kullanımda."
+    "takenEmail": "Bu e-posta adresi zaten kullanımda.",
+    "messages": "Mesajlar",
+    "settings": "Ayarlar"
 }

@@ -1,7 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'home_view_model.dart';
+import 'messages_view_model.dart';
 
-class HomeView extends HomeViewModel {
+class MessagesView extends MessagesViewModel {
   @override
   Widget build(BuildContext context) {
     // Replace this with your build function
@@ -10,7 +11,7 @@ class HomeView extends HomeViewModel {
       child: Scaffold(
           appBar: AppBar(
             automaticallyImplyLeading: false,
-            title: const Text('home'),
+            title: const Text('messages').tr(),
           ),
           body: Container()),
     );

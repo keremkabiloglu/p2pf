@@ -17,7 +17,7 @@ class NavigationView extends NavigationViewModel {
       currentIndex: navIndex,
       onTap: (value) => setNavIndex(value),
       items: [
-        BottomNavigationBarItem(icon: Icon(homeIconData), label: homeLabel),
+        BottomNavigationBarItem(icon: Icon(homeIconData), label: messagesLabel),
         BottomNavigationBarItem(
             icon: Icon(settingsIconData), label: settingsLabel),
       ],
