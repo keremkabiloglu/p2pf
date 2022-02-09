@@ -5,16 +5,16 @@ import 'package:sqflite/sqflite.dart';
 
 import '../../model/message.dart';
 
-class Sql {
+class SQL {
   final String _dataBase = 'database.db';
   final String _messagesTable = 'messages_t';
-  Database? database;
+  Database? _database;
 
   Future<void> initDatabase() async {
-    if (database == null) {
+    if (_database == null) {
       String path = join(await getDatabasesPath(), _dataBase);
 
-      database = await openDatabase(path,
+      _database = await openDatabase(path,
           version: 1,
           onCreate: (Database db, int version) =>
               debugPrint('Database initalized'));
@@ -22,17 +22,17 @@ class Sql {
   }
 
   Future<void> createMessagesTable() async {
-    if (database == null) {
+    if (_database == null) {
       await initDatabase();
     }
-    await database!.execute(
+    await _database!.execute(
         'CREATE TABLE $_messagesTable IF NOT EXIST (id INTEGER PRIMARY KEY, sender INTEGER, dateTime TEXT, content TEXT, readed TEXT)');
     debugPrint('Table created : $_messagesTable');
   }
 
   Future<void> insertMessage({required Message message}) async {
-    if (database == null) await initDatabase();
-    await database!.transaction((txn) async {
+    if (_database == null) await initDatabase();
+    await _database!.transaction((txn) async {
       int id = await txn.rawInsert(
           'INSERT INTO $_messagesTable (sender, dateTime, content, readed) VALUES (${message.sender}, ${message.dateTime.toString()}, ${message.content}, ${message.readed.toString()})');
       debugPrint('Message added to $_messagesTable : ${id.toString()}');
@@ -41,9 +41,9 @@ class Sql {
 
   Future<void> updateMessage(
       {required int messageId, required Message message}) async {
-    if (database == null) await initDatabase();
+    if (_database == null) await initDatabase();
 
-    await database!.rawUpdate(
+    await _database!.rawUpdate(
         'UPDATE $_messagesTable SET sender = ?, dateTime = ?, content = ?, readed = ? WHERE id = ?',
         [
           message.sender,
@@ -57,8 +57,8 @@ class Sql {
   }
 
   Future<Message?> getMessageWithID(int messageId) async {
-    if (database == null) await initDatabase();
-    List<Map> map = await database!
+    if (_database == null) await initDatabase();
+    List<Map> map = await _database!
         .rawQuery('SELECT * FROM $_messagesTable WHERE id = $messageId');
     for (var element in map) {
       return Message.fromMap(element);
@@ -67,9 +67,9 @@ class Sql {
   }
 
   Future<List<Message>> getAllMessages() async {
-    if (database == null) initDatabase();
+    if (_database == null) initDatabase();
     List<Message> messages = [];
-    List<Map> map = await database!.rawQuery('SELECT * FROM $_messagesTable');
+    List<Map> map = await _database!.rawQuery('SELECT * FROM $_messagesTable');
     for (var element in map) {
       messages.add(Message.fromMap(element));
       debugPrint('Message got from $_messagesTable id: $element[id]}');
