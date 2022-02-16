@@ -20,5 +20,7 @@
     "takenEmail": "This e-mail has already taken.",
     "messages": "Messages",
     "settings": "Settings",
-    "emptyMessageList": "Inbox is empty."
+    "emptyMessageList": "Inbox is empty.",
+    "emptyContact" : "Your friend list is empty."
+
 }

@@ -20,5 +20,6 @@
     "takenEmail": "Bu e-posta adresi zaten kullanımda.",
     "messages": "Mesajlar",
     "settings": "Ayarlar",
-    "emptyMessageList": "Mesaj kutunuz boş."
+    "emptyMessageList": "Mesaj kutunuz boş.",
+    "emptyContact" : "Arkadaş listeniz boş."
 }

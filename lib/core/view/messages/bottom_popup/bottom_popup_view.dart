@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:p2pf/core/view/messages/bottom_popup/input/search_input.dart';
@@ -32,18 +33,24 @@ class BottomPopupView extends BottomPopupViewModel {
   }
 
   ListView buildListView() => ListView.builder(
-        itemCount: 20,
-        itemBuilder: (BuildContext context, int index) => ListTile(
-          leading: const CircleAvatar(
-            backgroundImage: NetworkImage('https://picsum.photos/200/300'),
-          ),
-          title: const Text('Ahmet'),
-          subtitle: const Text('@akeremkabiloglu'),
-          trailing: IconButton(
-              onPressed: () {},
-              icon: const Icon(CupertinoIcons.bubble_left_bubble_right)),
-        ),
-      );
+      itemCount: contacts.isNotEmpty ? contacts.length : 1,
+      itemBuilder: (BuildContext context, int index) => contacts.isEmpty
+          ? ListTile(
+              title: const Text(
+                'emptyContact',
+                textAlign: TextAlign.center,
+              ).tr(),
+            )
+          : ListTile(
+              leading: const CircleAvatar(
+                backgroundImage: NetworkImage('https://picsum.photos/200/300'),
+              ),
+              title: const Text('Ahmet'),
+              subtitle: const Text('@akeremkabiloglu'),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(CupertinoIcons.bubble_left_bubble_right)),
+            ));
 
   Padding buildDivider(BuildContext context) => Padding(
         padding: const EdgeInsets.only(left: 10, right: 10),

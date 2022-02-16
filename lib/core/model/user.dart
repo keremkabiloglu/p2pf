@@ -1,14 +1,10 @@
 import 'dart:convert';
 
-import 'message.dart';
-
 class User {
   int? id;
   String? name;
   String? avatar;
   String? token;
-  List<Message> messageList = [];
-
   User({this.id, this.name, this.avatar, this.token});
 
   Map<String, dynamic> toMap() {
