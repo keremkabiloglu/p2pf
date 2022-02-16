@@ -19,5 +19,6 @@
     "informationError": "Bilgiler hatalı, lütfen tekrar deneyin.",
     "takenEmail": "Bu e-posta adresi zaten kullanımda.",
     "messages": "Mesajlar",
-    "settings": "Ayarlar"
+    "settings": "Ayarlar",
+    "emptyMessageList": "Mesaj kutunuz boş."
 }

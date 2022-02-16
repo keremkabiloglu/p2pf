@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.light,
       theme: lightThemeData,
       darkTheme: darkThemeData,
       localizationsDelegates: context.localizationDelegates,

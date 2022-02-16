@@ -19,5 +19,6 @@
     "informationError": "Informations are wrong, please check them.",
     "takenEmail": "This e-mail has already taken.",
     "messages": "Messages",
-    "settings": "Settings"
+    "settings": "Settings",
+    "emptyMessageList": "Inbox is empty."
 }
