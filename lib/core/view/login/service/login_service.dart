@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
 
-import '../../../data/service/socket_service.dart';
+import '../../../data/server/socket_service.dart';
 
 class LoginService extends SocketService {
   static const String _registerEvent = 'register:send';
